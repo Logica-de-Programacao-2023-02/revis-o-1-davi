@@ -18,7 +18,7 @@ import "fmt"
 
 func DivideWatermelon(peso int) (bool, error) {
 	if peso <= 0 {
-		return false, errors.New("Peso invalido")
+		return false, fmt.Errorf("Peso invalido")
 	}
 	if peso > 2 && peso%2 == 0 {
 		return true, nil
