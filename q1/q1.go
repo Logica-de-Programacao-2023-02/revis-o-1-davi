@@ -27,3 +27,18 @@ func DivideWatermelon(peso int) (bool, error) {
 	return false, nil
 }
 
+func main(){
+	pesoMelancia := 10 //Botar o peso da melancia
+
+	possivel, err := DivideWatermelon(pesoMelancia)
+	if err != nil {
+		fmt.Println("Erro:", err)
+		return
+	}
+
+	if possivel{
+		fmt.Println("E possivel dividir a melancia da forma desejada")
+	}else{
+		fmt.Println("Nao e possivel dividir a melancia da forma desejada")
+	}
+}
