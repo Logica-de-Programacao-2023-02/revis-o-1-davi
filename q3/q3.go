@@ -12,6 +12,56 @@ package q3
 //
 //Se M ou N forem iguais ou menores que 0, a função deve retornar um erro.
 
-func DominoPieces(m, n int) (int, error) {
-	return 0, nil
+
+import (
+	"fmt"
+)
+
+func contarPecasDominos(M, N int) (int, error) {
+	if M <= 0 || N <= 0 {
+		return 0, fmt.Errorf("M e N devem ser maiores que 0")
+	}
+
+	numPecas := (M * N) / 2
+
+	return numPecas, nil
+}
+
+func main() {
+	M := 3
+	N := 3
+
+	numPecas, err := contarPecasDominos(M, N)
+	if err != nil {
+		fmt.Println("Erro:", err)
+	} else {
+		fmt.Println("Número máximo de peças de dominó:", numPecas)
+	}
+}
+package main
+
+import (
+	"fmt"
+)
+
+func contarPecasDominos(M, N int) (int, error) {
+	if M <= 0 || N <= 0 {
+		return 0, fmt.Errorf("M e N devem ser maiores que 0")
+	}
+
+	numPecas := (M * N) / 2
+
+	return numPecas, nil
+}
+
+func main() {
+	M := 3
+	N := 3
+
+	numPecas, err := contarPecasDominos(M, N)
+	if err != nil {
+		fmt.Println("Erro:", err)
+	} else {
+		fmt.Println("Número máximo de peças de dominó:", numPecas)
+	}
 }

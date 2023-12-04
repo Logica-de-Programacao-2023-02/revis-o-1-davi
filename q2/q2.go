@@ -12,6 +12,25 @@ package q2
 //
 //Ajude os amigos a encontrar o número de problemas para os quais eles escreverão uma solução.
 
-func ProblemsSolved(answers [][3]bool) int {
-	return 0
+
+import "fmt"
+
+func contarProblemasSolucaoCertezas(matriz [][]bool) int {
+    problemasSolucaoCertezas := 0
+
+    for _, linha := range matriz {
+        certezas := 0
+        for _, temCerteza := range linha {
+            if temCerteza {
+                certezas++
+            }
+        }
+        if certezas >= 2 {
+            problemasSolucaoCertezas++
+        }
+    }
+
+    return problemasSolucaoCertezas
 }
+
+
