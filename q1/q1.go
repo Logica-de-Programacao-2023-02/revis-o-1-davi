@@ -28,7 +28,7 @@ func DivideWatermelon(peso int) (bool, error) {
 }
 
 func main(){
-	pesoMelancia := 10 //Botar o peso da melancia
+	pesoMelancia := 10 
 
 	possivel, err := DivideWatermelon(pesoMelancia)
 	if err != nil {
