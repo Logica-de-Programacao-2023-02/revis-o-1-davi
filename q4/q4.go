@@ -9,6 +9,53 @@ package q4
 //estiver em ordem decrescente e 3 se a lista estiver aleatória. A função deve retornar um erro se a lista estiver vazia.
 //Caso a lista possua apenas um elemento, a função deve retornar 3.
 
-func ClassifyPrices(prices []int) (int, error) {
-	return 0, nil
+
+import (
+	"errors"
+	"fmt"
+)
+
+func classificarLista(precoProdutos []int) (int, error) {
+	if len(precoProdutos) == 0 {
+		return 0, errors.New("a lista está vazia")
+	}
+
+	if len(precoProdutos) == 1 {
+		return 3, nil
+	}
+
+	crescente := true
+	for i := 0; i < len(precoProdutos)-1; i++ {
+		if precoProdutos[i] > precoProdutos[i+1] {
+			crescente = false
+			break
+		}
+	}
+	if crescente {
+		return 1, nil
+	}
+
+	decrescente := true
+	for i := 0; i < len(precoProdutos)-1; i++ {
+		if precoProdutos[i] < precoProdutos[i+1] {
+			decrescente = false
+			break
+		}
+	}
+	if decrescente {
+		return 2, nil
+	}
+
+	return 3, nil
+}
+
+func main() {
+	precos := []int{1, 2, 3, 4, 5}
+
+	resultado, err := classificarLista(precos)
+	if err != nil {
+		fmt.Println("Erro:", err)
+	} else {
+		fmt.Println("Classificação da lista:", resultado)
+	}
 }
