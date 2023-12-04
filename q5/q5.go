@@ -14,6 +14,31 @@ package q5
 //
 //Ajude Pedro a lidar com esta tarefa fácil.
 
-func ProcessString(s string) string {
-	return ""
+
+import (
+	"fmt"
+	"strings"
+)
+
+func processarString(s string) string {
+	var resultado strings.Builder
+
+	for _, char := range s {
+		charLower := strings.ToLower(string(char))
+
+		switch charLower {
+		case "a", "e", "i", "o", "u":
+		default:
+			resultado.WriteString("." + charLower)
+		}
+	}
+
+	return resultado.String()
+}
+
+func main() {
+	entrada := "Tour"
+
+	saida := processarString(entrada)
+	fmt.Println(saida)
 }
